@@ -1,0 +1,109 @@
+<head>
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Ejercicio Vehículos</h1>
+
+        <form id="myForm">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <label for="inputPlate">Plate</label>
+                    <input type="text" class="form-control" id="inputPlate" placeholder="Plate" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputBrand">Brand</label>
+                    <input type="text" class="form-control" id="inputBrand" placeholder="Brand" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputColor">Color</label>
+                    <input type="text" class="form-control" id="inputColor" placeholder="Color" required>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="button" class="btn btn-primary" onclick="createCar()">Create car</button>
+            </div>
+        </form>
+
+        <form id="myFormWheels">
+            <div class="form-row">
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelBrand1">Marca rueda 1</label>
+                    <input type="text" class="form-control" id="inputWheelBrand1" placeholder="Marca rueda 1" required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelDiam1">Diámetro rueda 1</label>
+                    <input type="text" class="form-control" id="inputWheelDiam1" placeholder="Diámetro rueda 1"
+                        required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelBrand2">Marca rueda 2</label>
+                    <input type="text" class="form-control" id="inputWheelBrand2" placeholder="Marca rueda 2" required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelDiam2">Diámetro rueda 2</label>
+                    <input type="text" class="form-control" id="inputWheelDiam2" placeholder="Diámetro rueda 2"
+                        required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelBrand3">Marca rueda 3</label>
+                    <input type="text" class="form-control" id="inputWheelBrand3" placeholder="Marca rueda 3" required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelDiam3">Diámetro rueda 3</label>
+                    <input type="text" class="form-control" id="inputWheelDiam3" placeholder="Diámetro rueda 3"
+                        required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelBrand4">Marca rueda 4</label>
+                    <input type="text" class="form-control" id="inputWheelBrand4" placeholder="Marca rueda 4" required>
+                </div>
+                <div class="col-md-3 pt-2">
+                    <label for="inputWheelDiam4">Diámetro rueda 4</label>
+                    <input type="text" class="form-control" id="inputWheelDiam4" placeholder="Diámetro rueda 4"
+                        required>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="button" class="btn btn-primary" onclick="addWheels()">Add wheels</button>
+            </div>
+        </form>
+
+        <p id="carInfo"></p>
+
+        <div class="row">
+            <div class="col-md-12" id="outputCar"></div>
+            <div class="col-md-4" id="outputPlate"></div>
+            <div class="col-md-4" id="outputBrand"></div>
+            <div class="col-md-4" id="outputColor"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12" id="outputWheels"></div>
+            <div class="col-md-3" id="outputWheelBrand1"></div>
+            <div class="col-md-3" id="outputWheelBrand2"></div>
+            <div class="col-md-3" id="outputWheelBrand3"></div>
+            <div class="col-md-3" id="outputWheelBrand4"></div>
+        </div>
+
+    </div>
+
+
+</body>
