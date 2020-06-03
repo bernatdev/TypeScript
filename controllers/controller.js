@@ -69,22 +69,42 @@ function ValidateWheel() {
     var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
     var acumErrors = 0;
     document.getElementById("myFormWheels").classList.remove('is-invalid');
-    if (inputWheelDiam1 < 0.4 || inputWheelDiam1 > 2) {
+    if (isNaN(inputWheelDiam1)) {
+        document.getElementById("inputWheelDiam1").classList.add("is-invalid");
+        document.getElementById("error_wheel1").textContent = "El diàmetre és obligatori";
+        acumErrors++;
+    }
+    else if (inputWheelDiam1 < 0.4 || inputWheelDiam1 > 2) {
         document.getElementById("inputWheelDiam1").classList.add("is-invalid");
         document.getElementById("error_wheel1").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
         acumErrors++;
     }
-    if (inputWheelDiam2 < 0.4 || inputWheelDiam2 > 2) {
+    if (isNaN(inputWheelDiam2)) {
+        document.getElementById("inputWheelDiam2").classList.add("is-invalid");
+        document.getElementById("error_wheel2").textContent = "El diàmetre és obligatori";
+        acumErrors++;
+    }
+    else if (inputWheelDiam2 < 0.4 || inputWheelDiam2 > 2) {
         document.getElementById("inputWheelDiam2").classList.add("is-invalid");
         document.getElementById("error_wheel2").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
         acumErrors++;
     }
-    if (inputWheelDiam3 < 0.4 || inputWheelDiam3 > 2) {
+    if (isNaN(inputWheelDiam3)) {
+        document.getElementById("inputWheelDiam3").classList.add("is-invalid");
+        document.getElementById("error_wheel3").textContent = "El diàmetre és obligatori";
+        acumErrors++;
+    }
+    else if (inputWheelDiam3 < 0.4 || inputWheelDiam3 > 2) {
         document.getElementById("inputWheelDiam3").classList.add("is-invalid");
         document.getElementById("error_wheel3").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
         acumErrors++;
     }
-    if (inputWheelDiam4 < 0.4 || inputWheelDiam4 > 2) {
+    if (isNaN(inputWheelDiam4)) {
+        document.getElementById("inputWheelDiam4").classList.add("is-invalid");
+        document.getElementById("error_wheel4").textContent = "El diàmetre és obligatori";
+        acumErrors++;
+    }
+    else if (inputWheelDiam4 < 0.4 || inputWheelDiam4 > 2) {
         document.getElementById("inputWheelDiam4").classList.add("is-invalid");
         document.getElementById("error_wheel4").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
         acumErrors++;
