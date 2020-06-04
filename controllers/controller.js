@@ -1,45 +1,17 @@
 "use strict";
 var car;
-document.getElementById("myFormCar").addEventListener("blur", function (event) {
-    console.log(event);
-    if (event.target.value != '')
-        event.target.classList.remove('is-invalid');
-    ValidateCar();
-}, true);
-document.getElementById("myFormWheels").addEventListener("blur", function (event) {
-    console.log(event);
-    if (event.target.value != '')
-        event.target.classList.remove('is-invalid');
-    ValidateWheel();
-}, true);
 function createCar() {
     var plate = document.getElementById("inputPlate").value;
-    var brand = document.getElementById("inputBrand").value;
     var color = document.getElementById("inputColor").value;
-    car = new Car(plate, color, brand);
-    document.getElementById("outputCar").innerHTML = "CAR: ";
-    document.getElementById("outputPlate").innerHTML = "PLATE: " + car.plate;
-    document.getElementById("outputBrand").innerHTML = "BRAND: " + car.brand;
-    document.getElementById("outputColor").innerHTML = "COLOR: " + car.color;
-}
-function addWheels() {
-    var inputWheelBrand1 = document.getElementById("inputWheelBrand1").value;
-    var inputWheelBrand2 = document.getElementById("inputWheelBrand2").value;
-    var inputWheelBrand3 = document.getElementById("inputWheelBrand3").value;
-    var inputWheelBrand4 = document.getElementById("inputWheelBrand4").value;
-    var inputWheelDiam1 = parseFloat(document.getElementById("inputWheelDiam1").value);
-    var inputWheelDiam2 = parseFloat(document.getElementById("inputWheelDiam2").value);
-    var inputWheelDiam3 = parseFloat(document.getElementById("inputWheelDiam3").value);
-    var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
-    car.addWheel(new Wheel(inputWheelDiam1, inputWheelBrand1));
-    car.addWheel(new Wheel(inputWheelDiam2, inputWheelBrand2));
-    car.addWheel(new Wheel(inputWheelDiam3, inputWheelBrand3));
-    car.addWheel(new Wheel(inputWheelDiam4, inputWheelBrand4));
-    document.getElementById("outputWheels").innerHTML = "WHEELS: ";
-    document.getElementById("outputWheelBrand1").innerHTML = "Wheel1: Brand " + car.wheels[0].brand + ", Diam " + car.wheels[0].diameter;
-    document.getElementById("outputWheelBrand2").innerHTML = "Wheel2: Brand " + car.wheels[1].brand + ", Diam " + car.wheels[1].diameter;
-    document.getElementById("outputWheelBrand3").innerHTML = "Wheel3: Brand " + car.wheels[2].brand + ", Diam " + car.wheels[2].diameter;
-    document.getElementById("outputWheelBrand4").innerHTML = "Wheel4: Brand " + car.wheels[3].brand + ", Diam " + car.wheels[3].diameter;
+    var brand = document.getElementById("inputBrand").value;
+    if (ValidateCar() == true) {
+        car = new Car(plate, color, brand);
+        document.getElementById("outputCar").innerHTML = "COTXE: ";
+        document.getElementById("outputPlate").innerHTML = "Matrícula: " + car.plate;
+        document.getElementById("outputColor").innerHTML = "Color: " + car.color;
+        document.getElementById("outputBrand").innerHTML = "Marca: " + car.brand;
+        document.getElementById("myFormWheels").classList.remove('d-none');
+    }
 }
 function ValidateCar() {
     var plate = document.getElementById("inputPlate").value;
@@ -62,13 +34,41 @@ function ValidateCar() {
         return true;
     }
 }
+function validate_plate(plate) {
+    var regex = /^([0-9]{4})([a-zA-Z]{3})$/; // 4 números i 3 lletres
+    return regex.test(plate) ? true : false;
+}
+function addWheels() {
+    var inputWheelBrand1 = document.getElementById("inputWheelBrand1").value;
+    var inputWheelBrand2 = document.getElementById("inputWheelBrand2").value;
+    var inputWheelBrand3 = document.getElementById("inputWheelBrand3").value;
+    var inputWheelBrand4 = document.getElementById("inputWheelBrand4").value;
+    var inputWheelDiam1 = parseFloat(document.getElementById("inputWheelDiam1").value);
+    var inputWheelDiam2 = parseFloat(document.getElementById("inputWheelDiam2").value);
+    var inputWheelDiam3 = parseFloat(document.getElementById("inputWheelDiam3").value);
+    var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
+    if (ValidateWheel() == true) {
+        car.addWheel(new Wheel(inputWheelDiam1, inputWheelBrand1));
+        car.addWheel(new Wheel(inputWheelDiam2, inputWheelBrand2));
+        car.addWheel(new Wheel(inputWheelDiam3, inputWheelBrand3));
+        car.addWheel(new Wheel(inputWheelDiam4, inputWheelBrand4));
+        document.getElementById("outputWheels").innerHTML = "RODES: ";
+        document.getElementById("outputWheelBrand1").innerHTML = "Roda1: Marca " + car.wheels[0].brand + ", Diam " + car.wheels[0].diameter;
+        document.getElementById("outputWheelBrand2").innerHTML = "Roda2: Marca " + car.wheels[1].brand + ", Diam " + car.wheels[1].diameter;
+        document.getElementById("outputWheelBrand3").innerHTML = "Roda3: Marca " + car.wheels[2].brand + ", Diam " + car.wheels[2].diameter;
+        document.getElementById("outputWheelBrand4").innerHTML = "Roda4: Marca " + car.wheels[3].brand + ", Diam " + car.wheels[3].diameter;
+    }
+}
 function ValidateWheel() {
     var inputWheelDiam1 = parseFloat(document.getElementById("inputWheelDiam1").value);
     var inputWheelDiam2 = parseFloat(document.getElementById("inputWheelDiam2").value);
     var inputWheelDiam3 = parseFloat(document.getElementById("inputWheelDiam3").value);
     var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
     var acumErrors = 0;
-    document.getElementById("myFormWheels").classList.remove('is-invalid');
+    document.getElementById("inputWheelDiam1").classList.remove("is-invalid");
+    document.getElementById("inputWheelDiam2").classList.remove("is-invalid");
+    document.getElementById("inputWheelDiam3").classList.remove("is-invalid");
+    document.getElementById("inputWheelDiam4").classList.remove("is-invalid");
     if (isNaN(inputWheelDiam1)) {
         document.getElementById("inputWheelDiam1").classList.add("is-invalid");
         document.getElementById("error_wheel1").textContent = "El diàmetre és obligatori";
@@ -115,8 +115,4 @@ function ValidateWheel() {
     else {
         return true;
     }
-}
-function validate_plate(plate) {
-    var regex = /^([0-9]{4})([a-zA-Z]{3})$/; // 4 números i 3 lletres
-    return regex.test(plate) ? true : false;
 }
