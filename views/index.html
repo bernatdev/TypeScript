@@ -18,18 +18,18 @@
 <body>
 
     <div class="container">
-        <h1>Ejercicio Vehículos</h1>
+        <h1>Exercici Vehicles</h1>
 
-        <form id="myFormCar" name="myFormCar" onsubmit="return ValidateCar()" >
+        <form id="myFormCar" name="myFormCar" >
             <div class="form-row">
                 <div class="col-md-4">
-                    <label for="inputPlate">Plate</label>
-                    <input type="text" class="form-control" id="inputPlate" placeholder="Plate" >
+                    <label for="inputPlate">Matrícula</label>
+                    <input type="text" class="form-control" id="inputPlate" placeholder="Matrícula" >
                     <div class="invalid-feedback" id="error_plate"></div>
                 </div>
                 <div class="col-md-4">
-                    <label for="inputBrand">Brand</label>
-                    <input type="text" class="form-control" id="inputBrand" placeholder="Brand" >
+                    <label for="inputBrand">Marca</label>
+                    <input type="text" class="form-control" id="inputBrand" placeholder="Marca" >
                 </div>
                 <div class="col-md-4">
                     <label for="inputColor">Color</label>
@@ -38,52 +38,52 @@
             </div>
 
             <div class="form-group mt-3">
-                <button type="submit" class="btn btn-primary"  onclick="createCar()">Create car</button>
+                <button type="button" class="btn btn-primary"  onclick="createCar()">Crear cotxe</button>
             </div>
         </form>
 
-        <form id="myFormWheels" name="myFormWheels" onsubmit="return ValidateWheel()">
+        <form class="d-none" id="myFormWheels" name="myFormWheels">
             <div class="form-row">
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelBrand1">Marca rueda 1</label>
-                    <input type="text" class="form-control" id="inputWheelBrand1" placeholder="Marca rueda 1" >
+                    <label for="inputWheelBrand1">Marca roda 1</label>
+                    <input type="text" class="form-control" id="inputWheelBrand1" placeholder="Marca roda 1" >
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelDiam1">Diámetro rueda 1</label>
-                    <input type="text" class="form-control" id="inputWheelDiam1" placeholder="Diámetro rueda 1">
+                    <label for="inputWheelDiam1">Diàmetre roda 1</label>
+                    <input type="text" class="form-control" id="inputWheelDiam1" placeholder="Diámetro roda 1">
                     <div class="invalid-feedback" id="error_wheel1"></div>
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelBrand2">Marca rueda 2</label>
-                    <input type="text" class="form-control" id="inputWheelBrand2" placeholder="Marca rueda 2" >
+                    <label for="inputWheelBrand2">Marca roda 2</label>
+                    <input type="text" class="form-control" id="inputWheelBrand2" placeholder="Marca roda 2" >
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelDiam2">Diámetro rueda 2</label>
-                    <input type="text" class="form-control" id="inputWheelDiam2" placeholder="Diámetro rueda 2">
+                    <label for="inputWheelDiam2">Diàmetre roda 2</label>
+                    <input type="text" class="form-control" id="inputWheelDiam2" placeholder="Diámetro roda 2">
                     <div class="invalid-feedback" id="error_wheel2"></div>
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelBrand3">Marca rueda 3</label>
-                    <input type="text" class="form-control" id="inputWheelBrand3" placeholder="Marca rueda 3" >
+                    <label for="inputWheelBrand3">Marca roda 3</label>
+                    <input type="text" class="form-control" id="inputWheelBrand3" placeholder="Marca roda 3" >
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelDiam3">Diámetro rueda 3</label>
-                    <input type="text" class="form-control" id="inputWheelDiam3" placeholder="Diámetro rueda 3">
+                    <label for="inputWheelDiam3">Diàmetre roda 3</label>
+                    <input type="text" class="form-control" id="inputWheelDiam3" placeholder="Diámetro roda 3">
                     <div class="invalid-feedback" id="error_wheel3"></div>
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelBrand4">Marca rueda 4</label>
-                    <input type="text" class="form-control" id="inputWheelBrand4" placeholder="Marca rueda 4" >
+                    <label for="inputWheelBrand4">Marca roda 4</label>
+                    <input type="text" class="form-control" id="inputWheelBrand4" placeholder="Marca roda 4" >
                 </div>
                 <div class="col-md-3 pt-2">
-                    <label for="inputWheelDiam4">Diámetro rueda 4</label>
-                    <input type="text" class="form-control" id="inputWheelDiam4" placeholder="Diámetro rueda 4">
+                    <label for="inputWheelDiam4">Diàmetre roda 4</label>
+                    <input type="text" class="form-control" id="inputWheelDiam4" placeholder="Diámetro roda 4">
                     <div class="invalid-feedback" id="error_wheel4"></div>
                 </div>
             </div>
 
             <div class="form-group mt-3">
-                <button type="submit" class="btn btn-primary" onclick="addWheels()">Add wheels</button>
+                <button type="button" class="btn btn-primary" onclick="addWheels()">Afegir rodes</button>
             </div>
         </form>
 
