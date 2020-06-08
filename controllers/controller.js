@@ -39,75 +39,33 @@ function validate_plate(plate) {
     return regex.test(plate) ? true : false;
 }
 function addWheels() {
-    var inputWheelBrand1 = document.getElementById("inputWheelBrand1").value;
-    var inputWheelBrand2 = document.getElementById("inputWheelBrand2").value;
-    var inputWheelBrand3 = document.getElementById("inputWheelBrand3").value;
-    var inputWheelBrand4 = document.getElementById("inputWheelBrand4").value;
-    var inputWheelDiam1 = parseFloat(document.getElementById("inputWheelDiam1").value);
-    var inputWheelDiam2 = parseFloat(document.getElementById("inputWheelDiam2").value);
-    var inputWheelDiam3 = parseFloat(document.getElementById("inputWheelDiam3").value);
-    var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
-    if (ValidateWheel() == true) {
-        car.addWheel(new Wheel(inputWheelDiam1, inputWheelBrand1));
-        car.addWheel(new Wheel(inputWheelDiam2, inputWheelBrand2));
-        car.addWheel(new Wheel(inputWheelDiam3, inputWheelBrand3));
-        car.addWheel(new Wheel(inputWheelDiam4, inputWheelBrand4));
-        document.getElementById("outputWheels").innerHTML = "RODES: ";
-        document.getElementById("outputWheelBrand1").innerHTML = "Roda1: Marca " + car.wheels[0].brand + ", Diam " + car.wheels[0].diameter;
-        document.getElementById("outputWheelBrand2").innerHTML = "Roda2: Marca " + car.wheels[1].brand + ", Diam " + car.wheels[1].diameter;
-        document.getElementById("outputWheelBrand3").innerHTML = "Roda3: Marca " + car.wheels[2].brand + ", Diam " + car.wheels[2].diameter;
-        document.getElementById("outputWheelBrand4").innerHTML = "Roda4: Marca " + car.wheels[3].brand + ", Diam " + car.wheels[3].diameter;
+    var i;
+    for (i = 1; i < 5; i++) {
+        var inputWheelBrand_generic = document.getElementById("inputWheelBrand" + i).value;
+        var inputWheelDiam_generic = parseFloat(document.getElementById("inputWheelDiam" + i).value);
+        if (ValidateWheel() == true) {
+            car.addWheel(new Wheel(inputWheelDiam_generic, inputWheelBrand_generic));
+            document.getElementById("outputWheels").innerHTML = "RODES: ";
+            document.getElementById("outputWheelBrand" + i).innerHTML = "Roda" + i + ": Marca " + car.wheels[i - 1].brand + ", Diam " + car.wheels[i - 1].diameter;
+        }
     }
 }
 function ValidateWheel() {
-    var inputWheelDiam1 = parseFloat(document.getElementById("inputWheelDiam1").value);
-    var inputWheelDiam2 = parseFloat(document.getElementById("inputWheelDiam2").value);
-    var inputWheelDiam3 = parseFloat(document.getElementById("inputWheelDiam3").value);
-    var inputWheelDiam4 = parseFloat(document.getElementById("inputWheelDiam4").value);
+    var i;
     var acumErrors = 0;
-    document.getElementById("inputWheelDiam1").classList.remove("is-invalid");
-    document.getElementById("inputWheelDiam2").classList.remove("is-invalid");
-    document.getElementById("inputWheelDiam3").classList.remove("is-invalid");
-    document.getElementById("inputWheelDiam4").classList.remove("is-invalid");
-    if (isNaN(inputWheelDiam1)) {
-        document.getElementById("inputWheelDiam1").classList.add("is-invalid");
-        document.getElementById("error_wheel1").textContent = "El diàmetre és obligatori";
-        acumErrors++;
-    }
-    else if (inputWheelDiam1 < 0.4 || inputWheelDiam1 > 2) {
-        document.getElementById("inputWheelDiam1").classList.add("is-invalid");
-        document.getElementById("error_wheel1").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
-        acumErrors++;
-    }
-    if (isNaN(inputWheelDiam2)) {
-        document.getElementById("inputWheelDiam2").classList.add("is-invalid");
-        document.getElementById("error_wheel2").textContent = "El diàmetre és obligatori";
-        acumErrors++;
-    }
-    else if (inputWheelDiam2 < 0.4 || inputWheelDiam2 > 2) {
-        document.getElementById("inputWheelDiam2").classList.add("is-invalid");
-        document.getElementById("error_wheel2").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
-        acumErrors++;
-    }
-    if (isNaN(inputWheelDiam3)) {
-        document.getElementById("inputWheelDiam3").classList.add("is-invalid");
-        document.getElementById("error_wheel3").textContent = "El diàmetre és obligatori";
-        acumErrors++;
-    }
-    else if (inputWheelDiam3 < 0.4 || inputWheelDiam3 > 2) {
-        document.getElementById("inputWheelDiam3").classList.add("is-invalid");
-        document.getElementById("error_wheel3").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
-        acumErrors++;
-    }
-    if (isNaN(inputWheelDiam4)) {
-        document.getElementById("inputWheelDiam4").classList.add("is-invalid");
-        document.getElementById("error_wheel4").textContent = "El diàmetre és obligatori";
-        acumErrors++;
-    }
-    else if (inputWheelDiam4 < 0.4 || inputWheelDiam4 > 2) {
-        document.getElementById("inputWheelDiam4").classList.add("is-invalid");
-        document.getElementById("error_wheel4").textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
-        acumErrors++;
+    for (i = 1; i < 5; i++) {
+        var inputWheelDiam_generic = parseFloat(document.getElementById("inputWheelDiam" + i).value);
+        document.getElementById("inputWheelDiam" + i).classList.remove("is-invalid");
+        if (isNaN(inputWheelDiam_generic)) {
+            document.getElementById("inputWheelDiam" + i).classList.add("is-invalid");
+            document.getElementById("error_wheel" + i).textContent = "El diàmetre és obligatori";
+            acumErrors++;
+        }
+        else if (inputWheelDiam_generic < 0.4 || inputWheelDiam_generic > 2) {
+            document.getElementById("inputWheelDiam" + i).classList.add("is-invalid");
+            document.getElementById("error_wheel" + i).textContent = "El diàmetre ha d'estar comprès entre 0.4 i 2";
+            acumErrors++;
+        }
     }
     if (acumErrors > 0) {
         return false;
