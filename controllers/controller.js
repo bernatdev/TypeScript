@@ -11,12 +11,19 @@ function createCar() {
         document.getElementById("outputColor").innerHTML = "Color: " + car.color;
         document.getElementById("outputBrand").innerHTML = "Marca: " + car.brand;
         document.getElementById("myFormWheels").classList.remove('d-none');
+        document.getElementById("outputWheelsDiv").classList.add('d-none');
+        document.getElementById("outputCarDiv").classList.remove('d-none');
+    }
+    else {
+        document.getElementById("myFormWheels").classList.add('d-none');
+        document.getElementById("outputWheelsDiv").classList.add('d-none');
+        document.getElementById("outputCarDiv").classList.add('d-none');
     }
 }
 function ValidateCar() {
     var plate = document.getElementById("inputPlate").value;
     var acumErrors = 0;
-    document.getElementById("myFormCar").classList.remove('is-invalid');
+    document.getElementById("inputPlate").classList.remove("is-invalid");
     if (plate == '') {
         document.getElementById("inputPlate").classList.add("is-invalid");
         document.getElementById("error_plate").textContent = "La matrícula és obligatòria";
@@ -45,6 +52,7 @@ function addWheels() {
         var inputWheelDiam_generic = parseFloat(document.getElementById("inputWheelDiam" + i).value);
         if (ValidateWheel() == true) {
             car.addWheel(new Wheel(inputWheelDiam_generic, inputWheelBrand_generic));
+            document.getElementById("outputWheelsDiv").classList.remove('d-none');
             document.getElementById("outputWheels").innerHTML = "RODES: ";
             document.getElementById("outputWheelBrand" + i).innerHTML = "Roda" + i + ": Marca " + car.wheels[i - 1].brand + ", Diam " + car.wheels[i - 1].diameter;
         }

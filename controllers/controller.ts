@@ -14,14 +14,20 @@ function createCar() {
         (<HTMLInputElement>document.getElementById("outputBrand")).innerHTML = "Marca: " + car.brand;
 
         (<HTMLInputElement>document.getElementById("myFormWheels")).classList.remove('d-none');
+        (<HTMLInputElement>document.getElementById("outputWheelsDiv")).classList.add('d-none');
+        (<HTMLInputElement>document.getElementById("outputCarDiv")).classList.remove('d-none');
 
+    } else {
+        (<HTMLInputElement>document.getElementById("myFormWheels")).classList.add('d-none');
+        (<HTMLInputElement>document.getElementById("outputWheelsDiv")).classList.add('d-none');
+        (<HTMLInputElement>document.getElementById("outputCarDiv")).classList.add('d-none');
     }
 }
 
 function ValidateCar() {
     var plate = (<HTMLInputElement>document.getElementById("inputPlate")).value;
     var acumErrors = 0;
-    (<HTMLInputElement>document.getElementById("myFormCar")).classList.remove('is-invalid');
+    (<HTMLInputElement>document.getElementById("inputPlate")).classList.remove("is-invalid");
 
     if (plate == '') {
         (<HTMLInputElement>document.getElementById("inputPlate")).classList.add("is-invalid");
@@ -53,8 +59,9 @@ function addWheels() {
 
         if (ValidateWheel() == true) {
             car.addWheel(new Wheel(inputWheelDiam_generic, inputWheelBrand_generic));
+            (<HTMLInputElement>document.getElementById("outputWheelsDiv")).classList.remove('d-none');
             (<HTMLInputElement>document.getElementById("outputWheels")).innerHTML = "RODES: ";
-            (<HTMLInputElement>document.getElementById("outputWheelBrand" + i)).innerHTML = "Roda" + i +": Marca " + car.wheels[i-1].brand + ", Diam " + car.wheels[i-1].diameter; 
+            (<HTMLInputElement>document.getElementById("outputWheelBrand" + i)).innerHTML = "Roda" + i + ": Marca " + car.wheels[i - 1].brand + ", Diam " + car.wheels[i - 1].diameter;
         }
     }
 }
