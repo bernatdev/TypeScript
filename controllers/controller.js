@@ -22,8 +22,12 @@ function createCar() {
 }
 function ValidateCar() {
     var plate = document.getElementById("inputPlate").value;
+    var brand = document.getElementById("inputBrand").value;
+    var color = document.getElementById("inputColor").value;
     var acumErrors = 0;
     document.getElementById("inputPlate").classList.remove("is-invalid");
+    document.getElementById("inputBrand").classList.remove("is-invalid");
+    document.getElementById("inputColor").classList.remove("is-invalid");
     if (plate == '') {
         document.getElementById("inputPlate").classList.add("is-invalid");
         document.getElementById("error_plate").textContent = "La matrícula és obligatòria";
@@ -32,6 +36,16 @@ function ValidateCar() {
     else if (!validate_plate(plate)) {
         document.getElementById("inputPlate").classList.add("is-invalid");
         document.getElementById("error_plate").textContent = "La matrícula ha de tenir 4 números i 3 lletres";
+        acumErrors++;
+    }
+    if (brand == '') {
+        document.getElementById("inputBrand").classList.add("is-invalid");
+        document.getElementById("error_brand").textContent = "La marca és obligatòria";
+        acumErrors++;
+    }
+    if (color == '') {
+        document.getElementById("inputColor").classList.add("is-invalid");
+        document.getElementById("error_color").textContent = "El color és obligatori";
         acumErrors++;
     }
     if (acumErrors > 0) {

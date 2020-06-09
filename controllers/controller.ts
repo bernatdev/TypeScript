@@ -26,8 +26,13 @@ function createCar() {
 
 function ValidateCar() {
     var plate = (<HTMLInputElement>document.getElementById("inputPlate")).value;
+    var brand = (<HTMLInputElement>document.getElementById("inputBrand")).value;
+    var color = (<HTMLInputElement>document.getElementById("inputColor")).value;
+
     var acumErrors = 0;
     (<HTMLInputElement>document.getElementById("inputPlate")).classList.remove("is-invalid");
+    (<HTMLInputElement>document.getElementById("inputBrand")).classList.remove("is-invalid");
+    (<HTMLInputElement>document.getElementById("inputColor")).classList.remove("is-invalid");
 
     if (plate == '') {
         (<HTMLInputElement>document.getElementById("inputPlate")).classList.add("is-invalid");
@@ -38,6 +43,20 @@ function ValidateCar() {
         (<HTMLInputElement>document.getElementById("error_plate")).textContent = "La matrícula ha de tenir 4 números i 3 lletres";
         acumErrors++;
     }
+
+    if (brand == '') {
+        (<HTMLInputElement>document.getElementById("inputBrand")).classList.add("is-invalid");
+        (<HTMLInputElement>document.getElementById("error_brand")).textContent = "La marca és obligatòria";
+        acumErrors++;
+    } 
+
+    if (color == '') {
+        (<HTMLInputElement>document.getElementById("inputColor")).classList.add("is-invalid");
+        (<HTMLInputElement>document.getElementById("error_color")).textContent = "El color és obligatori";
+        acumErrors++;
+    } 
+
+
 
     if (acumErrors > 0) {
         return false;
