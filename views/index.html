@@ -20,25 +20,25 @@
     <div class="container">
         <h1>Exercici Vehicles</h1>
 
-        <form id="myFormCar" name="myFormCar" >
+        <form id="myFormCar" name="myFormCar">
             <div class="form-row">
                 <div class="col-md-4">
                     <label for="inputPlate">Matrícula</label>
-                    <input type="text" class="form-control" id="inputPlate" placeholder="Matrícula" >
+                    <input type="text" class="form-control" id="inputPlate" placeholder="Matrícula">
                     <div class="invalid-feedback" id="error_plate"></div>
                 </div>
                 <div class="col-md-4">
                     <label for="inputBrand">Marca</label>
-                    <input type="text" class="form-control" id="inputBrand" placeholder="Marca" >
+                    <input type="text" class="form-control" id="inputBrand" placeholder="Marca">
                 </div>
                 <div class="col-md-4">
                     <label for="inputColor">Color</label>
-                    <input type="text" class="form-control" id="inputColor" placeholder="Color" >
+                    <input type="text" class="form-control" id="inputColor" placeholder="Color">
                 </div>
             </div>
 
             <div class="form-group mt-3">
-                <button type="button" class="btn btn-primary"  onclick="createCar()">Crear cotxe</button>
+                <button type="button" class="btn btn-primary" onclick="createCar()">Crear cotxe</button>
             </div>
         </form>
 
@@ -46,7 +46,7 @@
             <div class="form-row">
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelBrand1">Marca roda 1</label>
-                    <input type="text" class="form-control" id="inputWheelBrand1" placeholder="Marca roda 1" >
+                    <input type="text" class="form-control" id="inputWheelBrand1" placeholder="Marca roda 1">
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelDiam1">Diàmetre roda 1</label>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelBrand2">Marca roda 2</label>
-                    <input type="text" class="form-control" id="inputWheelBrand2" placeholder="Marca roda 2" >
+                    <input type="text" class="form-control" id="inputWheelBrand2" placeholder="Marca roda 2">
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelDiam2">Diàmetre roda 2</label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelBrand3">Marca roda 3</label>
-                    <input type="text" class="form-control" id="inputWheelBrand3" placeholder="Marca roda 3" >
+                    <input type="text" class="form-control" id="inputWheelBrand3" placeholder="Marca roda 3">
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelDiam3">Diàmetre roda 3</label>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelBrand4">Marca roda 4</label>
-                    <input type="text" class="form-control" id="inputWheelBrand4" placeholder="Marca roda 4" >
+                    <input type="text" class="form-control" id="inputWheelBrand4" placeholder="Marca roda 4">
                 </div>
                 <div class="col-md-3 pt-2">
                     <label for="inputWheelDiam4">Diàmetre roda 4</label>
@@ -89,14 +89,14 @@
 
         <p id="carInfo"></p>
 
-        <div class="row">
+        <div class="row" id="outputCarDiv">
             <div class="col-md-12" id="outputCar"></div>
             <div class="col-md-4" id="outputPlate"></div>
             <div class="col-md-4" id="outputBrand"></div>
             <div class="col-md-4" id="outputColor"></div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" id="outputWheelsDiv">
             <div class="col-md-12" id="outputWheels"></div>
             <div class="col-md-3" id="outputWheelBrand1"></div>
             <div class="col-md-3" id="outputWheelBrand2"></div>
